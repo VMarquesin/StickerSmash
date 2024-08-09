@@ -5,6 +5,8 @@ import ImageViewer from "./components/ImageViewer";
 import Button from "./components/Button";
 import * as ImagePicker from "expo-image-picker";
 import { useState } from "react";
+import IconButton from "./components/IconButton";
+import CircleButton from "./components/CircleButton";
 
 const PlaceholderImage = require("./assets/images/background-image.png");
 
