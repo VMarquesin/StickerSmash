@@ -13,6 +13,9 @@ import CircleButton from "./components/CircleButton";
 import EmojiList from "./components/emojiList";
 import EmojiPicker from "./components/emojiPicker";
 
+import EmojiSticker from "./components/emojiSticker";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 const PlaceholderImage = require("./assets/images/background-image.png");
 
 export default function App() {
@@ -51,12 +54,15 @@ export default function App() {
    const onSaveImageAsync = async () => {};
 
    return (
-      <View style={styles.container}>
+      <GestureHandlerRootView style={styles.container}>
          <View style={styles.imageContainer}>
             <ImageViewer
                placeholderImageSource={PlaceholderImage}
                selectedImage={selectedImage}
             />
+            {pickedEmoji && (
+               <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
+            )}
          </View>
          {showAppOptions ? (
             <View style={styles.optionsContainer}>
@@ -91,7 +97,7 @@ export default function App() {
             <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
          </EmojiPicker>
          <StatusBar style="auto" />
-      </View>
+      </GestureHandlerRootView>
    );
 }
 
@@ -129,4 +135,4 @@ const styles = StyleSheet.create({
    //     borderRadius: 18,
    //  },
 });
-// exibir o emoji selecionado
+// Adicionar um gesto de panorâmica
